@@ -1,0 +1,53 @@
+<div class="container">
+    <mat-toolbar>
+      <span>CRUD</span>
+  
+      <div class="example-spacer"></div>
+      <button mat-raised-button color="primary" (click)="editPeople()" type="button">Crear</button>
+    </mat-toolbar>
+  
+    <div class="mat-elevation-z3">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombreCompleto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+        </ng-container>
+  
+        <!-- NTIdentificacion Column -->
+        <ng-container matColumnDef="numeroIdentificacionTipo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo - N Identifiación </th>
+          <td mat-cell *matCellDef="let element"> {{element.numeroIdentificacionTipo}} </td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+  
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;"> 
+            <a class="pointer" (click)="viewPeople(element.id)" style="color: #ff4081; margin-right: 15%;" matTooltip="Ver"><mat-icon>search</mat-icon></a>
+            <a (click)="editPeople(element)" style="color: #1f516f; margin-right: 15%;" matTooltip="Editar"><mat-icon>edit</mat-icon></a>
+            <a (click)="deletePeople(element.id)" style="color: #e15639;" matTooltip="Eliminar"><mat-icon>delete</mat-icon></a>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+        
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>

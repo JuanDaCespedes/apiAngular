@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <h2 class="title m-0" fxFlex="auto">{{people?.nombreCompleto}}</h2>
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-content class="my-6" fxLayout="column">
+    <mat-card class="example-card">
+        <!-- <mat-card-subtitle>{{people?.age}}</mat-card-subtitle> -->
+        <mat-card-content>
+            <p>Nombre:   {{people?.nombre}}</p>
+            <p>Apellido:   {{people?.apellido}}</p>
+            <p>Nombre Completo:   {{people?.nombreCompleto}}</p>
+            <p>tipo Identificacion:   {{people?.tipoIdentificacion}}</p>
+            <p>numeroIdentificacion:   {{people?.numeroIdentificacion}}</p>
+            <p>Tipo Numero Identificación:   {{people?.numeroIdentificacionTipo}}</p>
+            <p>Email:   {{people?.email}}</p>
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial color="warn" type="button" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+<div class="body">
+    <div class="login">
+        <img src="./assets/img/login.png" alt="login" width="50%">
+        <h1>Login</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input matInput [(ngModel)]="user.usuario" name="usuario" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [(ngModel)]="user.password" name="pass" type="password" autocomplete="off">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="accent" (click)="login()">Entrar</button>
+    </div>
+</div>

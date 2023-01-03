@@ -1,0 +1,40 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon>close</mat-icon>
+    </button>
+    <h2 class="title m-0" fxFlex="auto">{{people?.nombre || 'Persona'}}</h2>
+</div>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-content class="my-6" fxLayout="column">
+    <form class="example-container" #ngForm="ngForm">
+        <app-input-data-component [ph]="'Nombre'" [typeInput]="'text'" [val]="people?.nombre"
+            style="margin-right: 10px;" (inputData)="getNombre($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Apellido'" [typeInput]="'text'" [val]="people?.apellido"
+            style="margin-right: 10px;" (inputData)="getApellido($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Nombre Completo'" [typeInput]="'text'" style="margin-right: 10px;"
+            [val]="people?.nombre + ' ' + people?.apellido"
+            (inputData)="getNCompleto($event);"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Tipo Identificación'" [typeInput]="'text'" [val]="people?.tipoIdentificacion"
+            style="margin-right: 10px;" (inputData)="getTIdent($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Numero Identificación'" [typeInput]="'text'"
+            [val]="people?.numeroIdentificacion" style="margin-right: 10px;"
+            (inputData)="getNIdent($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Tipo y Numero de Identificación'" [typeInput]="'text'"
+            [val]="people?.tipoIdentificacion + ' ' + people?.numeroIdentificacion" style="margin-right: 10px;"
+            (inputData)="getTNIdent($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Email'" [typeInput]="'text'" [val]="people?.email" style="margin-right: 10px;"
+            (inputData)="getEmail($event)"></app-input-data-component>
+
+        <button mat-button color="primary" type="button" (click)="save()" [disabled]="ngForm.invalid">Guardar</button>
+    </form>
+</mat-dialog-content>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial color="warn" type="button" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

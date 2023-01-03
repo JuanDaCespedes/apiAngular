@@ -1,0 +1,22 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon>close</mat-icon>
+    </button>
+    <h2 class="title m-0" fxFlex="auto">{{user?.usuario || 'Persona'}}</h2>
+</div>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-content class="my-6" fxLayout="column">
+    <form class="example-container" #ngForm="ngForm">
+        <app-input-data-component [ph]="'Usuario'" [typeInput]="'text'" [val]="user?.usuario"
+            style="margin-right: 10px;" (inputData)="getUser($event)"></app-input-data-component>
+
+        <app-input-data-component [ph]="'Contraseña'" [typeInput]="'text'" [val]="user?.pass"
+            style="margin-right: 10px;" (inputData)="getPass($event)"></app-input-data-component>
+
+        <button mat-button color="primary" type="button" (click)="save()" [disabled]="ngForm.invalid">Guardar</button>
+    </form>
+</mat-dialog-content>
+<mat-divider class="mx-6 text-border"></mat-divider>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial color="warn" type="button" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>
